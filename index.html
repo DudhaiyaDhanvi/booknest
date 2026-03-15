@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  
+  <style>
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+#page-wrapper {
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/** global classes styling **/
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.btn {
+  padding: 12px 30px;
+  height: 45px;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,107,53,0.6);
+  background: linear-gradient(45deg, #ff8e53, #f7931e);
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  min-height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+  width: 50px;
+}
+
+.logo > img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffd700 !important;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+#hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 40px;
+  text-align: center;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 50px;
+  opacity: 0.95;
+}
+
+.featured-book {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.featured-content h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.featured-content h3 {
+  font-size: 1.6em;
+  margin: 10px 0 15px;
+  color: #fff;
+}
+
+.featured-content p {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+
+.featured-btn {
+  font-size: 1.1em;
+  padding: 15px 40px !important;
+  width: auto;
+}
+
+.featured-image {
+  position: relative;
+}
+
+.featured-image img {
+  width: 220px;
+  height: 340px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  transform: rotate(-2deg);
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: linear-gradient(45deg, #00b894, #00cec9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9em;
+  box-shadow: 0 5px 15px rgba(0,184,148,0.4);
+}
+
+/* FIXED: Header overlap fix */
+#features {
+  padding-top: 90px;
+  margin-top: 30px;
+}
+
+#features .icon {
+  width: 120px;
+  margin-right: 30px;
+  color: #ff6b35;
+}
+
+#features .desc h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.8em;
+}
+
+#features .desc p {
+  color: #666;
+  font-size: 1.1em;
+}
+
+/* TOP 6 PRODUCTS SECTION */
+#top-picks {
+  padding-top: 90px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 3em;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+}
+
+.section-header p {
+  font-size: 1.3em;
+  color: #666;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.product-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.product {
+  flex: 1;
+  max-width: 360px;
+  min-height: 520px;
+  border-radius: 25px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+}
+
+.product > .level {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  margin: -30px -30px 25px -30px;
+  padding: 25px;
+  border-radius: 25px 25px 0 0;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.product > h2 {
+  color: #e74c3c;
+  font-size: 2.2em;
+  margin: 15px 0;
+  font-weight: 800;
+  text-align: center;
+}
+
+.product > img {
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  margin: 25px auto;
+  display: block;
+  width: 180px;
+  height: 279px;
+}
+
+.product > ol {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.product > ol > li {
+  padding: 12px 0;
+  font-size: 1.15em;
+  color: #555;
+  text-align: center;
+  list-style: none;
+}
+
+/* VIEW ALL BUTTON */
+.view-all-section {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.4em;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.view-all-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(102,126,234,0.6);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  margin-top: 80px;
+  border-radius: 25px 25px 0 0;
+}
+
+/** Responsive **/
+@media (max-width: 1200px) {
+  .product {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-book {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.8em;
+  }
+  
+  nav > ul {
+    gap: 20px;
+  }
+  
+  header {
+    padding: 15px 20px;
+  }
+  
+  .container {
+    padding: 30px 15px;
+  }
+  
+  #features, #top-picks {
+    padding-top: 100px;
+  }
+  
+  .section-header h2 {
+    font-size: 2.2em;
+  }
+  
+  .view-all-btn {
+    padding: 18px 40px;
+    font-size: 1.2em;
+  }
+}
+
+/* Footer */
+    footer {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      margin-top: 80px;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-link {
+      color: #ffd700 !important;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      background: rgba(255,215,0,0.3);
+      transform: translateY(-2px);
+    }
+
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.2em;
+  }
+}
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <header id="header">
+      <div class="logo">
+        <img id="header-img" src="https://th.bing.com/th/id/OIP.aiTYbM3vaMZvP9cu09SVOQHaHa?w=179&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="BookStore Logo" />
+      </div>
+
+      <nav id="nav-bar">
+        <ul>
+          <li><a class="nav-link" href="#hero">Home</a></li>
+          <li><a class="nav-link" href="about.html">About Us</a></li>
+          <li><a class="nav-link" href="#features">Features</a></li>
+          <li><a class="nav-link" href="collection.html">Range of Books</a></li>
+          <li><a class="nav-link" href="#top-picks">Top Picks</a></li>
+          <li><a class="nav-link" href="#trending">Trending</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="hero">
+      <div class="hero-content">
+        <h1> <strong>Best Books Collection</strong></h1>
+        <p class="hero-subtitle">Premium quality books & diaries delivered to your door</p>
+        
+        <!-- Featured Book of the Week -->
+        <div class="featured-book">
+          <div class="featured-content">
+            <h2><strong>Featured Book of the Week</strong></h2>
+            <h3>How to Become a Straight-A Student</h3>
+            <p><strong>Rs 149</strong></p>
+            <button class="btn featured-btn">Grab Now!</button>
+          </div>
+          <div class="featured-image">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81VpbVKuj6L.jpg" alt="Featured Book">
+            <div class="badge">Bestseller</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section id="features">
+        <div class="grid">
+          <div class="icon"><i class="fa fa-3x fa-fire"></i></div>
+          <div class="desc">
+            <h2>Premium Materials</h2>
+            <p>Our Books and Diaries are beautiful without any defective pieces.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="icon"><i class="fa fa-3x fa-truck"></i></div>
+          <div class="desc">
+            <h2>Fast Shipping</h2>
+            <p>We make sure you receive your books and diaries on time.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="icon"><i class="fa fa-3x fa-shield-alt"></i></div>
+          <div class="desc">
+            <h2>7-Day Return</h2>
+            <p>Love it or return it within 7 days, no questions asked.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOP 6 PRODUCTS SECTION (PRICES REMOVED) -->
+      <section id="top-picks">
+        <div class="section-header">
+          <h2><strong>Top 6 Picks This Week</strong></h2>
+          <p>Our best-selling books handpicked for you</p>
+        </div>
+        
+        <div class="products-container">
+          <!-- Row 1: Top 3 Bestsellers -->
+          <div class="product-row">
+            <div class="product bestseller" id="straight-a">
+              <div class="level">Straight A Student</div>
+              <img src="https://images-na.ssl-images-amazon.com/images/I/81VpbVKuj6L.jpg" alt="Straight A Student">
+              <ol>
+                <li>By Cal Newport</li>
+              </ol>
+            </div>
+            
+            <div class="product bestseller" id="atomic">
+              <div class="level">Atomic Habits</div>
+              <img src="https://blog.12min.com/wp-content/uploads/2019/02/image2-9-661x1024.jpg" alt="Atomic Habits">
+              <ol>
+                <li>By James Clear</li>
+              </ol>
+            </div>
+            
+            <div class="product bestseller" id="radio-silence">
+              <div class="level">Radio Silence</div>
+              <img src="https://cdn4.libris.ro/img/pozeprod/37644/37643543-1.jpg" alt="Radio Silence">
+              <ol>
+                <li>By Alice Osmen</li>
+              </ol>
+            </div>
+          </div>
+          
+          <!-- Row 2: Next 3 Popular -->
+          <div class="product-row">
+            <div class="product" id="subtle-art">
+              <div class="level">The Subtle Art of Not Giving a F*ck</div>
+              <img src="https://media.shortform.com/covers/png/the-subtle-art-of-not-giving-a-fck-cover.png" alt="The Subtle Art of Not Giving a F*ck">
+              <ol>
+                <li>By Mark Manson</li>
+              </ol>
+              
+            </div>
+            
+            <div class="product" id="A Little Life">
+              <div class="level">A Little Life</div>
+              <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1446469353i/22822858.jpg" alt="A Little Life">
+              <ol>
+                <li>By Hanya Yanagihara</li>
+              </ol>
+            </div>
+
+            <div class="product" id="caraval-series">
+              <div class="level">Caraval Series</div>
+              <img src="https://m.media-amazon.com/images/I/51iACbrgFzL._SX342_SY445_.jpg" alt="Caraval Series">
+              <ol>
+                <li>By Stephanie Garber</li>
+              </ol>
+            </div>
+
+            <section id="trending">
+              <div class="section-header">
+                <h2><strong>Trending Now</strong></h2>
+                <p>Books that are creating a buzz in the literary world</p>
+              </div>
+              
+              <div class="products-container">
+                <div class="product-row">
+                  <div class="product" id="mans-search-for-meaning">
+                    <div class="level">Atomic Habits</div>
+                    <img src="https://blog.12min.com/wp-content/uploads/2019/02/image2-9-661x1024.jpg" alt="Atomic Habits">
+                    <ol>
+                      <li>By James Clear</li>
+                    </ol>
+                    </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="view-all-section">
+          <a href="collection.html" class="view-all-btn">View Full Collection <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </section>
+    </div>
+  </div>
+   <footer>
+    <div class="footer-content">
+      <span>© 2026 BookNest | Fast Delivery Across India</span>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="collection.html" class="footer-link">Shop</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Best Books Store</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+<body>
+<div id="page-wrapper">
+  <!-- SAME HEADER -->
+  <header id="header">
+    <div class="logo">
+      <img
+        id="header-img"
+        src="https://th.bing.com/th/id/OIP.aiTYbM3vaMZvP9cu09SVOQHaHa?w=179&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"
+      />
+    </div>
+
+    <nav id="nav-bar">
+        <ul>
+          <li><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link" href="about.html">About Us</a></li>
+          <li><a class="nav-link" href="index.html#features">Features</a></li>
+          <li><a class="nav-link" href="collection.html">Range of Books</a></li>
+          <li><a class="nav-link" href="index.html#top-picks">Top Picks</a></li>
+          <li><a class="nav-link" href="index.html#trending">Trending</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  <!-- CONTACT HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>📞 Get In Touch</h1>
+      <p class="hero-subtitle">Contact us for any inquiries about our books</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <section id="contact" class="contact-section">
+      <div class="contact-grid">
+        <!-- ADDRESS -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt fa-3x"></i>
+          </div>
+          <h3>📍 Our Address</h3>
+          <p style="margin-left: 20px;text-align: left;">
+  BookNest Pvt. Ltd<br>
+  Nirma University Campus<br>
+  Sarkhej-Gandhinagar Highway<br>
+  Gujarat – 382481<br>
+  India
+</p>
+        </div>
+
+        <!-- PHONE -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone fa-3x"></i>
+          </div>
+          <h3>📞 Phone</h3>
+          <p>+91 6351043385</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope fa-3x"></i>
+          </div>
+          <h3>✉️ Email</h3>
+          <p>support@booknest.com</p>
+        </div>
+
+        <!-- HOURS -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-clock fa-3x"></i>
+          </div>
+          <h3>⏰ Business Hours</h3>
+          <p>Mon - Sat: 9AM - 8PM<br>Sunday: 10AM - 6PM</p>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div class="contact-card whatsapp">
+          <div class="contact-icon">
+            <i class="fab fa-whatsapp fa-3x"></i>
+          </div>
+          <h3>💬 WhatsApp</h3>
+          <p>+91 6351043385</p>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="contact-card social">
+          <div class="contact-icon">
+            <i class="fas fa-share-alt fa-3x"></i>
+          </div>
+          <h3>🌐 Follow Us</h3>
+          <p>Instagram | Facebook | Twitter</p>
+        </div>
+      </div>
+    </section>
+  </div>
+   <footer>
+    <div class="footer-content">
+      <span>© 2024 Best Books Collection | Fast Delivery Across India</span>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="collection.html" class="footer-link">Shop</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+}
+
+#page-wrapper {
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* HEADER - SAME AS MAIN PAGE */
+header {
+  position: fixed;
+  top: 0;
+  min-height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+  width: 50px;
+}
+
+.logo > img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffd700 !important;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffd700;
+}
+
+/* HERO */
+#hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 120px 20px 80px;
+  text-align: center;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  opacity: 0.95;
+}
+
+/* CONTACT GRID */
+.contact-section {
+  padding: 80px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+}
+
+.contact-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.contact-icon {
+  margin-bottom: 25px;
+}
+
+.contact-card i {
+  color: #ff6b35;
+  background: rgba(255,107,53,0.1);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2em;
+}
+
+.contact-card h3 {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 700;
+}
+
+.contact-card p {
+  color: #666;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* SPECIAL CARDS */
+
+.whatsapp i {
+  color: #25D366 !important;
+  background: rgba(37,211,102,0.1) !important;
+}
+
+.social i {
+  color: #667eea !important;
+  background: rgba(102,126,234,0.1) !important;
+}
+
+footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/** RESPONSIVE DESIGN **/
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+  
+  nav > ul {
+    gap: 20px;
+  }
+  
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .contact-card {
+    padding: 30px 25px;
+  }
+}
+
+/* Footer */
+    footer {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      margin-top: 80px;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-link {
+      color: #ffd700 !important;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      background: rgba(255,215,0,0.3);
+      transform: translateY(-2px);
+    }
+
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 25px 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2em;
+  }
+}
+</style>

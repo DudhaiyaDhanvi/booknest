@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Best Books Collection</title>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <style>
+    @import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Lato', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header - Matches main site */
+    header {
+      position: fixed;
+      top: 0;
+      min-height: 70px;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      width: 50px;
+    }
+
+    .logo > img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    nav > ul {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+      text-shadow: 0 0 10px rgba(255,215,0,0.5);
+    }
+    nav a{
+        text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 40px 60px;
+    }
+
+    /* Hero Section */
+    .hero-about {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 100px 40px;
+      text-align: center;
+      border-radius: 25px;
+      margin-bottom: 60px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+
+    .hero-about h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-about p {
+      font-size: 1.4em;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* About Content */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .about-section {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+      transition: all 0.4s ease;
+    }
+
+    .about-section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    }
+
+    .about-section h2 {
+      color: #667eea;
+      font-size: 2.2em;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .about-section p {
+      font-size: 1.15em;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* Stats Section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: 0 15px 45px rgba(255,107,53,0.4);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 25px 60px rgba(255,107,53,0.6);
+    }
+
+    .stat-number {
+      font-size: 3.5em;
+      font-weight: 900;
+      display: block;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .stat-label {
+      font-size: 1.2em;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      margin-top: 80px;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-link {
+      color: #ffd700 !important;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      background: rgba(255,215,0,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 100px 20px 40px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-about {
+        padding: 60px 20px;
+      }
+
+      .hero-about h1 {
+        font-size: 2.5em;
+      }
+
+      nav > ul {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 40px 20px;
+      }
+
+      .cta-section h2 {
+        font-size: 2.2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-about h1 {
+        font-size: 2em;
+      }
+
+      .stat-number {
+        font-size: 2.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="https://th.bing.com/th/id/OIP.aiTYbM3vaMZvP9cu09SVOQHaHa?w=179&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Logo">
+    </div>
+    <nav id="nav-bar">
+        <ul>
+          <li><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link" href="about.html">About Us</a></li>
+          <li><a class="nav-link" href="index.html#features">Features</a></li>
+          <li><a class="nav-link" href="collection.html">Range of Books</a></li>
+          <li><a class="nav-link" href="index.html#top-picks">Top Picks</a></li>
+          <li><a class="nav-link" href="index.html#trending">Trending</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero-about">
+      <h1>🌟 About Our Bookstore</h1>
+      <p>
+        Passionate about bringing the world's best books to your doorstep. 
+        We curate premium quality books and diaries with love and care.
+      </p>
+    </section>
+
+    <!-- About Content -->
+    <div class="about-content">
+      <div class="about-section">
+        <h2><i class="fas fa-book-open"></i> Our Story</h2>
+        <p>
+          Welcome to BookNest, your one-stop destination for discovering and buying books that inspire, educate, and entertain. 
+          Our platform is designed to make reading more accessible and enjoyable for everyone.
+          At BookNest, we offer a wide range of books across genres including fiction, non-fiction, academic, self-help, and more. 
+          Whether you are a student looking for study material or a reader searching for your next favorite story, we aim to provide quality books at affordable prices.
+          We believe that books have the power to shape minds, spark creativity, and transform lives. 
+          Our goal is to build a community of readers who share a love for learning and storytelling.
+        </p>
+        <p>
+          Today, we serve thousands of readers across India with fast 
+          delivery and exceptional service. Every book we ship carries 
+          our promise of quality and joy.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h2><i class="fas fa-heart"></i> Our Mission</h2>
+        <p>
+          Our mission is to make books easily accessible to readers everywhere while promoting a culture of learning and curiosity.
+        </p>
+        <p>
+          We strive to:
+        </p>
+        <ul style="margin-top: 20px; padding-left: 20px;">
+          <li>Provide a wide variety of books for readers of all interests and ages.</li>
+          <br>
+          <li>Offer a convenient and user-friendly platform for discovering and purchasing books.</li>
+          <br>
+          <li>Encourage reading as a habit that enriches knowledge, creativity, and personal growth.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">5000+</span>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">1000+</span>
+        <div class="stat-label">Books Delivered</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">50+</span>
+        <div class="stat-label">Book Titles</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">99%</span>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <span>© 2026 BookNest | Fast Delivery Across India</span>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="collection.html" class="footer-link">Shop</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="contact.html" class="footer-link" target="_blank">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
